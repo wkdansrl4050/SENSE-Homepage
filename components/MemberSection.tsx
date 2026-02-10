@@ -9,7 +9,7 @@ const members: Member[] = [
     name: '이민우',
     nameEn: 'Min-woo Lee',
     role: 'Professor',
-    photo: './components/one.jpg',
+    photo: 'https://drive.google.com/file/d/1l-RGosWOr0BGuPCYc7k7c1_d2h583Cga/view?usp=sharing',
     email: 'mwlee@kmu.ac.kr',
     affiliation: 'Department of Chemical Engineering, Keimyung University',
     office: 'Engineering building #3, Room #3319',
