@@ -3,13 +3,14 @@ import React, { useState } from 'react';
 import { Member } from '../types';
 import SectionHeader from './SectionHeader';
 
+// IMPORTANT: GitHub Pages is case-sensitive. Ensure your filenames are 'one.jpg', 'two.jpg', etc.
 const members: Member[] = [
   {
     id: 1,
     name: '이민우',
     nameEn: 'Min-woo Lee',
     role: 'Professor',
-    photo: 'https://drive.google.com/file/d/1l-RGosWOr0BGuPCYc7k7c1_d2h583Cga/view?usp=sharing',
+    photo: 'https://lh3.googleusercontent.com/d/1l-RGosWOr0BGuPCYc7k7c1_d2h583Cga',
     email: 'mwlee@kmu.ac.kr',
     affiliation: 'Department of Chemical Engineering, Keimyung University',
     office: 'Engineering building #3, Room #3319',
@@ -35,7 +36,7 @@ const members: Member[] = [
     name: '박경환',
     nameEn: 'Kyeong-hwan Park',
     role: 'Undergraduate Researcher',
-    photo: './components/two.jpg',
+    photo: 'https://lh3.googleusercontent.com/d/1wvpYdFs4eFyl0hIXYop7E0CqAwlD1V8-',
     email: 'khpark@kmu.ac.kr',
     affiliation: 'Undergraduate Researcher, SENSE Lab'
   },
@@ -44,7 +45,7 @@ const members: Member[] = [
     name: '유정화',
     nameEn: 'Jeong-hwa Yu',
     role: 'Undergraduate Researcher',
-    photo: './components/three.jpg',
+    photo: 'https://lh3.googleusercontent.com/d/1wRMGxhB0I5oumhp7DLjQZ84UmjIPzxdL',
     email: 'jhyu@kmu.ac.kr',
     affiliation: 'Undergraduate Researcher, SENSE Lab'
   },
@@ -53,7 +54,7 @@ const members: Member[] = [
     name: '이재민',
     nameEn: 'Jae-min Lee',
     role: 'Undergraduate Researcher',
-    photo: './components/four.jpg',
+    photo: 'https://lh3.googleusercontent.com/d/1zbW8aITouUKo0cz11j2dFeHTwrHxYPB-',
     email: 'jmlee@kmu.ac.kr',
     affiliation: 'Undergraduate Researcher, SENSE Lab'
   },
@@ -62,7 +63,8 @@ const members: Member[] = [
     name: '장문기',
     nameEn: 'Mun-gi Jang',
     role: 'Undergraduate Researcher',
-    photo: './components/five.jpg',
+    // Updated to Google Drive Direct Link format: https://lh3.googleusercontent.com/d/[FILE_ID]
+    photo: 'https://lh3.googleusercontent.com/d/1DLkE3PafqHUCHaZe9mp7aApPSCXgiErx',
     email: 'mgjang@kmu.ac.kr',
     affiliation: 'Undergraduate Researcher, SENSE Lab'
   }
@@ -112,7 +114,7 @@ const ProfessorProfile: React.FC<{ professor: Member }> = ({ professor }) => (
         </svg>
       </div>
 
-      <div className="w-64 h-80 flex-shrink-0 relative z-10 border border-gray-100 shadow-md bg-gray-50 overflow-hidden">
+      <div className="w-64 h-80 flex-shrink-0 relative z-10 border border-gray-100 shadow-md bg-white overflow-hidden">
         <img 
           src={professor.photo} 
           alt={professor.name} 
@@ -161,7 +163,7 @@ const ProfessorProfile: React.FC<{ professor: Member }> = ({ professor }) => (
 
 const StudentCard: React.FC<{ member: Member }> = ({ member }) => (
   <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:border-[#2E7D32] transition-all group hover:shadow-xl hover:-translate-y-1 duration-300">
-    <div className="relative w-40 h-40 mx-auto mb-6 bg-gray-50 rounded-full overflow-hidden">
+    <div className="relative w-40 h-40 mx-auto mb-6">
       <img 
         src={member.photo} 
         alt={member.name} 
