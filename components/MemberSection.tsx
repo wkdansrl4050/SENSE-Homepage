@@ -44,7 +44,7 @@ const members: Member[] = [
     name: '유정화',
     nameEn: 'Jeong-hwa Yu',
     role: 'Undergraduate Researcher',
-    photo: 'components/three.jpg',
+    photo: 'components/three.png',
     email: 'jhyu@kmu.ac.kr',
     affiliation: 'Undergraduate Researcher, SENSE Lab'
   },
