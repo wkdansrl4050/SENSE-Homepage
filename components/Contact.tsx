@@ -154,7 +154,7 @@ const Contact: React.FC = () => {
           )}
         </div>
 
-        {/* Right: Lab Info & Map View - Added padding to align headers */}
+        {/* Right: Lab Info & Map View */}
         <div className="space-y-8 pt-0 md:pt-10">
           <div>
             <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center italic">
@@ -220,7 +220,7 @@ const Contact: React.FC = () => {
             {/* Map visual background */}
             <div className="absolute inset-0">
                <img 
-                src="map.jpg" 
+                src="components/map.jpg" 
                 alt="Keimyung University Map" 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60"
                 onError={(e) => {

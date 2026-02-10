@@ -9,7 +9,7 @@ const members: Member[] = [
     name: '이민우',
     nameEn: 'Min-woo Lee',
     role: 'Professor',
-    photo: 'one.jpg', // Changed from first.jpg to one.jpg
+    photo: 'components/one.jpg',
     email: 'mwlee@kmu.ac.kr',
     affiliation: 'Department of Chemical Engineering, Keimyung University',
     office: 'Engineering building #3, Room #3319',
@@ -35,7 +35,7 @@ const members: Member[] = [
     name: '박경환',
     nameEn: 'Kyeong-hwan Park',
     role: 'Undergraduate Researcher',
-    photo: 'two.jpg',
+    photo: 'components/two.jpg',
     email: 'khpark@kmu.ac.kr',
     affiliation: 'Undergraduate Researcher, SENSE Lab'
   },
@@ -44,7 +44,7 @@ const members: Member[] = [
     name: '유정화',
     nameEn: 'Jeong-hwa Yu',
     role: 'Undergraduate Researcher',
-    photo: 'three.jpg',
+    photo: 'components/three.jpg',
     email: 'jhyu@kmu.ac.kr',
     affiliation: 'Undergraduate Researcher, SENSE Lab'
   },
@@ -53,7 +53,7 @@ const members: Member[] = [
     name: '이재민',
     nameEn: 'Jae-min Lee',
     role: 'Undergraduate Researcher',
-    photo: 'four.jpg',
+    photo: 'components/four.jpg',
     email: 'jmlee@kmu.ac.kr',
     affiliation: 'Undergraduate Researcher, SENSE Lab'
   },
@@ -62,14 +62,13 @@ const members: Member[] = [
     name: '장문기',
     nameEn: 'Mun-gi Jang',
     role: 'Undergraduate Researcher',
-    photo: 'five.jpg',
+    photo: 'components/five.jpg',
     email: 'mgjang@kmu.ac.kr',
     affiliation: 'Undergraduate Researcher, SENSE Lab'
   }
 ];
 
 const CollapsibleSection: React.FC<{ title: string; items: string[] }> = ({ title, items }) => {
-  // Set default state to false so sections are collapsed by default
   const [isOpen, setIsOpen] = useState(false);
 
   return (
