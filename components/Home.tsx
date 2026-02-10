@@ -1,63 +1,95 @@
 
 import React from 'react';
+import { PageRoute } from '../App';
 
-const Home: React.FC = () => {
+interface HomeProps {
+  onNavigate: (route: PageRoute) => void;
+}
+
+const Home: React.FC<HomeProps> = ({ onNavigate }) => {
   return (
     <div className="relative overflow-hidden bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-32">
-        <div className="text-center">
-          <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-            <span className="block xl:inline">SENSE</span>{' '}
-            <span className="block text-[#2E7D32] xl:inline leading-tight">
-              Sustainable Environment System Engineering
-            </span>
-          </h1>
-          <p className="mt-6 max-w-2xl mx-auto text-lg text-gray-500 sm:text-xl">
-            Empowering a sustainable future through advanced system engineering and environmental innovation.
-          </p>
-          <div className="mt-10 flex justify-center gap-4">
-            <a
-              href="#research"
-              className="px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#2E7D32] hover:bg-[#1B5E20] transition-colors md:py-4 md:text-lg md:px-10"
-            >
-              Explore Research
-            </a>
-            <a
-              href="#contact"
-              className="px-8 py-3 border border-gray-300 text-base font-medium rounded-md text-[#2E7D32] bg-white hover:bg-gray-50 transition-colors md:py-4 md:text-lg md:px-10"
-            >
-              Contact Us
-            </a>
-          </div>
+      {/* Hero Section */}
+      <div className="relative min-h-screen flex items-center pt-32 pb-40">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?q=80&w=2560&auto=format&fit=crop" 
+            alt="Forest Canopy Looking Up" 
+            className="w-full h-full object-cover"
+            loading="eager"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-white/10"></div>
+          <div className="absolute inset-0 bg-black/10"></div>
         </div>
 
-        <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-          <div className="p-6">
-            <div className="w-12 h-12 bg-[#2E7D32]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg className="w-6 h-6 text-[#2E7D32]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-block px-4 py-1.5 mb-8 text-xs font-black tracking-[0.3em] text-white uppercase bg-[#2E7D32]/90 backdrop-blur-md rounded-full animate-fade-in shadow-xl">
+            Engineering for a Sustainable Tomorrow
+          </div>
+          <h1 className="text-6xl tracking-tighter font-black text-white sm:text-8xl md:text-9xl drop-shadow-2xl">
+            <span className="block">SENSE</span>
+            <span className="block text-[#A5D6A7] leading-tight mt-2 italic">
+              LAB
+            </span>
+          </h1>
+          <p className="mt-10 max-w-2xl mx-auto text-xl text-white sm:text-2xl leading-relaxed drop-shadow-md font-bold">
+            Redefining environmental systems through circular innovation. 
+            We design technologies that help humanity and nature thrive together.
+          </p>
+          <div className="mt-16 flex flex-col sm:flex-row justify-center gap-6">
+            <button
+              onClick={() => onNavigate('RESEARCH')}
+              className="px-12 py-5 bg-[#2E7D32] text-white font-black rounded-full hover:bg-[#1B5E20] transition-all shadow-2xl hover:scale-105 active:scale-95 text-lg"
+            >
+              Our Research
+            </button>
+            <button
+              onClick={() => onNavigate('CONTACT')}
+              className="px-12 py-5 bg-white/10 backdrop-blur-xl border-2 border-white/40 text-white font-black rounded-full hover:bg-white/20 transition-all hover:scale-105 active:scale-95 text-lg"
+            >
+              Collaborate With Us
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Feature Section */}
+      <div className="relative z-10 -mt-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-32">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="p-12 bg-white rounded-[2.5rem] shadow-2xl border border-gray-100 group transition-all duration-500 hover:-translate-y-3">
+            <div className="w-20 h-20 bg-[#2E7D32]/10 rounded-3xl flex items-center justify-center mb-10 group-hover:bg-[#2E7D32] transition-all duration-300">
+              <svg className="w-10 h-10 text-[#2E7D32] group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </div>
-            <h3 className="text-xl font-bold mb-2">Innovation</h3>
-            <p className="text-gray-600">Developing cutting-edge technologies to solve complex environmental challenges.</p>
+            <h3 className="text-3xl font-black text-gray-900 mb-6 italic">Innovation</h3>
+            <p className="text-gray-600 leading-relaxed font-medium text-lg">
+              Integrated engineering frameworks for urban resilience and sustainable resource cycles.
+            </p>
           </div>
-          <div className="p-6">
-            <div className="w-12 h-12 bg-[#2E7D32]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg className="w-6 h-6 text-[#2E7D32]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          
+          <div className="p-12 bg-white rounded-[2.5rem] shadow-2xl border border-gray-100 group transition-all duration-500 hover:-translate-y-3">
+            <div className="w-20 h-20 bg-[#2E7D32]/10 rounded-3xl flex items-center justify-center mb-10 group-hover:bg-[#2E7D32] transition-all duration-300">
+              <svg className="w-10 h-10 text-[#2E7D32] group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" />
               </svg>
             </div>
-            <h3 className="text-xl font-bold mb-2">Sustainability</h3>
-            <p className="text-gray-600">Promoting the circular economy and resource efficiency for a greener planet.</p>
+            <h3 className="text-3xl font-black text-gray-900 mb-6 italic">Circular</h3>
+            <p className="text-gray-600 leading-relaxed font-medium text-lg">
+              Engineering solutions to eliminate waste and maximize resource value through smart design.
+            </p>
           </div>
-          <div className="p-6">
-            <div className="w-12 h-12 bg-[#2E7D32]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg className="w-6 h-6 text-[#2E7D32]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+
+          <div className="p-12 bg-white rounded-[2.5rem] shadow-2xl border border-gray-100 group transition-all duration-500 hover:-translate-y-3">
+            <div className="w-20 h-20 bg-[#2E7D32]/10 rounded-3xl flex items-center justify-center mb-10 group-hover:bg-[#2E7D32] transition-all duration-300">
+              <svg className="w-10 h-10 text-[#2E7D32] group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857" />
               </svg>
             </div>
-            <h3 className="text-xl font-bold mb-2">Collaboration</h3>
-            <p className="text-gray-600">Working across disciplines to create holistic systems for environmental engineering.</p>
+            <h3 className="text-3xl font-black text-gray-900 mb-6 italic">Impact</h3>
+            <p className="text-gray-600 leading-relaxed font-medium text-lg">
+              Bridging global environmental challenges with local engineering excellence.
+            </p>
           </div>
         </div>
       </div>
