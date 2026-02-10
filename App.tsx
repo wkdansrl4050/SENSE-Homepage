@@ -7,7 +7,15 @@ import PublicationSection from './components/PublicationSection';
 import MemberSection from './components/MemberSection';
 import Contact from './components/Contact';
 
-export type PageRoute = 'HOME' | 'RESEARCH' | 'PUBLICATION' | 'MEMBER' | 'CONTACT';
+export type PageRoute = 
+  | 'HOME' 
+  | 'RESEARCH' 
+  | 'PUBLICATION' 
+  | 'MEMBER_PROFESSOR' 
+  | 'MEMBER_GRADUATE' 
+  | 'MEMBER_UNDERGRADUATE' 
+  | 'MEMBER_ALUMNI' 
+  | 'CONTACT';
 
 const App: React.FC = () => {
   const [currentRoute, setCurrentRoute] = useState<PageRoute>('HOME');
@@ -25,8 +33,14 @@ const App: React.FC = () => {
         return <div className="pt-32 pb-16 bg-gray-50 min-h-[70vh]"><Research /></div>;
       case 'PUBLICATION':
         return <div className="pt-32 pb-16 bg-white min-h-[70vh]"><PublicationSection /></div>;
-      case 'MEMBER':
-        return <div className="pt-32 pb-16 bg-gray-50 min-h-[70vh]"><MemberSection /></div>;
+      case 'MEMBER_PROFESSOR':
+        return <div className="pt-32 pb-16 bg-gray-50 min-h-[70vh]"><MemberSection category="Professor" /></div>;
+      case 'MEMBER_GRADUATE':
+        return <div className="pt-32 pb-16 bg-gray-50 min-h-[70vh]"><MemberSection category="Graduate Student" /></div>;
+      case 'MEMBER_UNDERGRADUATE':
+        return <div className="pt-32 pb-16 bg-gray-50 min-h-[70vh]"><MemberSection category="Undergraduate Researcher" /></div>;
+      case 'MEMBER_ALUMNI':
+        return <div className="pt-32 pb-16 bg-gray-50 min-h-[70vh]"><MemberSection category="Alumni" /></div>;
       case 'CONTACT':
         return <div className="pt-32 pb-16 bg-white min-h-[70vh]"><Contact /></div>;
       default:
@@ -47,7 +61,7 @@ const App: React.FC = () => {
           <div className="flex justify-center space-x-6 mt-6">
             <button onClick={() => setCurrentRoute('HOME')} className="text-gray-400 hover:text-white transition-colors">Home</button>
             <button onClick={() => setCurrentRoute('RESEARCH')} className="text-gray-400 hover:text-white transition-colors">Research</button>
-            <button onClick={() => setCurrentRoute('MEMBER')} className="text-gray-400 hover:text-white transition-colors">Members</button>
+            <button onClick={() => setCurrentRoute('MEMBER_PROFESSOR')} className="text-gray-400 hover:text-white transition-colors">Members</button>
           </div>
           <p className="text-gray-500 mt-8 text-sm">© {new Date().getFullYear()} SENSE Lab. All Rights Reserved.</p>
         </div>
