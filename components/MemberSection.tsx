@@ -13,7 +13,7 @@ const members: Member[] = [
     photo: 'https://lh3.googleusercontent.com/d/1l-RGosWOr0BGuPCYc7k7c1_d2h583Cga',
     email: 'mwlee@kmu.ac.kr',
     affiliation: 'Department of Chemical Engineering, Keimyung University',
-    office: 'Engineering building #3, Room #3319',
+    office: 'Engineering building #3, Room #3111',
     tel: '+82-53-580-5236',
     education: [
       'Ph.D. Environmental Engineering, Yonsei University, Republic of Korea',

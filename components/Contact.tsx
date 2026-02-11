@@ -154,7 +154,7 @@ const Contact: React.FC = () => {
           )}
         </div>
 
-        {/* Right: Lab Info & Map View - Added padding to align headers */}
+        {/* Right: Lab Info & Map View */}
         <div className="space-y-8 pt-0 md:pt-10">
           <div>
             <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center italic">
@@ -190,7 +190,6 @@ const Contact: React.FC = () => {
                 <div className="ml-5">
                   <h4 className="text-xs font-black text-gray-400 uppercase tracking-widest mb-1">Contact</h4>
                   <p className="text-gray-900 font-bold">Tel: +82-53-580-5236</p>
-                  <p className="text-gray-900 font-bold">Mobile: +82-(0)10-7799-7174</p>
                 </div>
               </div>
 

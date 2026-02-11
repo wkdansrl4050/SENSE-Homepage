@@ -48,15 +48,13 @@ const App: React.FC = () => {
     }
   };
 
+  // 연구실 로고 URL
+  const labLogoUrl = `https://lh3.googleusercontent.com/d/1qA6PNA3ZjSEB4v-g2fzXf3VXumTbwpo3`;
+
   return (
     <div className="min-h-screen flex flex-col font-sans selection:bg-[#2E7D32] selection:text-white">
       <Navbar currentRoute={currentRoute} onNavigate={setCurrentRoute} />
       
-      {/* 
-        The 'key' prop is crucial here. When currentRoute changes, 
-        React destroys the old div and creates a new one, 
-        triggering the 'animate-page-in' CSS animation.
-      */}
       <main 
         key={currentRoute} 
         className="flex-grow animate-page-in"
@@ -66,15 +64,28 @@ const App: React.FC = () => {
 
       <footer className="bg-gray-900 text-white py-16 border-t border-gray-800">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <div className="flex justify-center mb-8">
-            <div className="text-3xl font-black text-[#A5D6A7] tracking-tighter flex items-center space-x-2">
-              <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 3L4 9V21H20V9L12 3Z" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-              <span>SENSE</span>
-            </div>
+          <div className="flex justify-center mb-6">
+            <button 
+              onClick={() => setCurrentRoute('HOME')}
+              className="group focus:outline-none"
+            >
+              {/* 푸터 로고: 어두운 배경에서 이질감이 없도록 세련된 화이트 카드(배지)에 담음 */}
+              <div className="bg-white p-3 md:p-4 rounded-2xl shadow-2xl border border-gray-700/50 transition-all duration-300 group-hover:scale-105 group-hover:-translate-y-1">
+                <img 
+                  src={labLogoUrl} 
+                  alt="SENSE Lab Seal" 
+                  className="h-12 md:h-16 w-auto object-contain"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = 'https://via.placeholder.com/200x80/ffffff/2E7D32?text=SENSE+LAB';
+                  }}
+                />
+              </div>
+            </button>
           </div>
-          <p className="text-gray-400 font-medium mb-8">Sustainable Environment System Engineering Laboratory</p>
+          
+          <h2 className="text-xl font-black text-[#A5D6A7] tracking-tighter mb-2 italic">SENSE LAB</h2>
+          <p className="text-gray-400 font-bold mb-8 text-sm md:text-base">Sustainable Environment System Engineering Laboratory</p>
+          
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-12">
             <button onClick={() => setCurrentRoute('HOME')} className="text-gray-500 hover:text-white font-bold transition-colors">Home</button>
             <button onClick={() => setCurrentRoute('RESEARCH')} className="text-gray-500 hover:text-white font-bold transition-colors">Research</button>
@@ -83,7 +94,7 @@ const App: React.FC = () => {
             <button onClick={() => setCurrentRoute('CONTACT')} className="text-gray-500 hover:text-white font-bold transition-colors">Contact</button>
           </div>
           <div className="w-12 h-px bg-gray-800 mx-auto mb-8"></div>
-          <p className="text-gray-600 text-sm font-medium tracking-wide">
+          <p className="text-gray-600 text-xs md:text-sm font-medium tracking-wide">
             © {new Date().getFullYear()} SENSE Lab. Department of Chemical Engineering, Keimyung University.
           </p>
         </div>

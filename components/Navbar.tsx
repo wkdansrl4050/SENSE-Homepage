@@ -11,7 +11,9 @@ const Navbar: React.FC<NavbarProps> = ({ currentRoute, onNavigate }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMemberDropdownOpen, setIsMemberDropdownOpen] = useState(false);
 
-  // Restored all links as requested by the user
+  // 연구실 로고 이미지 URL
+  const labLogoUrl = `https://lh3.googleusercontent.com/d/1qA6PNA3ZjSEB4v-g2fzXf3VXumTbwpo3`;
+
   const memberSubLinks: { name: PageRoute; label: string }[] = [
     { name: 'MEMBER_PROFESSOR', label: 'Professor' },
     { name: 'MEMBER_GRADUATE', label: 'Graduate Students' },
@@ -28,18 +30,23 @@ const Navbar: React.FC<NavbarProps> = ({ currentRoute, onNavigate }) => {
   const isMemberActive = currentRoute.startsWith('MEMBER_');
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-lg border-b border-white/20 shadow-sm transition-all duration-300">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-100 shadow-sm transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20 items-center">
           <div className="flex-shrink-0">
             <button 
               onClick={() => handleNavigate('HOME')}
-              className="text-2xl font-black text-[#2E7D32] tracking-tighter flex items-center space-x-2 focus:outline-none"
+              className="flex items-center group focus:outline-none py-1"
             >
-              <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 3L4 9V21H20V9L12 3Z" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-              <span>SENSE</span>
+              {/* 상단 로고: 여백을 충분히 주어 시원하게 배치 */}
+              <img 
+                src={labLogoUrl} 
+                alt="SENSE Lab Logo" 
+                className="h-12 w-auto object-contain transition-all duration-300 group-hover:scale-105"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = 'https://via.placeholder.com/200x80?text=SENSE+LAB';
+                }}
+              />
             </button>
           </div>
 
@@ -78,7 +85,6 @@ const Navbar: React.FC<NavbarProps> = ({ currentRoute, onNavigate }) => {
                 PUBLICATION
               </button>
 
-              {/* Member Dropdown */}
               <div 
                 className="relative group"
                 onMouseEnter={() => setIsMemberDropdownOpen(true)}
