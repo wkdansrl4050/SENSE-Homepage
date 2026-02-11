@@ -1,11 +1,11 @@
 
 import React, { useState, useEffect } from 'react';
-import Navbar from './components/Navbar.tsx';
-import Home from './components/Home.tsx';
-import Research from './components/Research.tsx';
-import PublicationSection from './components/PublicationSection.tsx';
-import MemberSection from './components/MemberSection.tsx';
-import Contact from './components/Contact.tsx';
+import Navbar from './components/Navbar';
+import Home from './components/Home';
+import Research from './components/Research';
+import PublicationSection from './components/PublicationSection';
+import MemberSection from './components/MemberSection';
+import Contact from './components/Contact';
 
 export type PageRoute = 
   | 'HOME' 
@@ -69,7 +69,6 @@ const App: React.FC = () => {
               onClick={() => setCurrentRoute('HOME')}
               className="group focus:outline-none"
             >
-              {/* 푸터 로고: 어두운 배경에서 이질감이 없도록 세련된 화이트 카드(배지)에 담음 */}
               <div className="bg-white p-3 md:p-4 rounded-2xl shadow-2xl border border-gray-700/50 transition-all duration-300 group-hover:scale-105 group-hover:-translate-y-1">
                 <img 
                   src={labLogoUrl} 
